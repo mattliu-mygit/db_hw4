@@ -4,7 +4,16 @@
 <body>
   <?php
     include "open.php";
-    $sql = file_get_contents('HW4_SHOWRAWSCORES.sql');
+    // $sql = file_get_contents('HW4_SHOWRAWSCORES.sql');
+    $sql = "Select HW4_Student.SID,
+    Lname,
+    FName,
+    Sec,
+    AName,
+    Score
+  FROM HW4_Student
+    JOIN HW4_RawScore ON HW4_Student.SID = HW4_RawScore.SID
+  WHERE HW4_Student.SID = 1006;";
 
     	//execute the query, then run through the result table row by row to
       //put each row's data into our array
