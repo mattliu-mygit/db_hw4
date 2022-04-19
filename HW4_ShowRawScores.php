@@ -11,19 +11,30 @@
 
     // Within html table, tr is table row, th is table header,
     // and td is table data
-    echo "<tr><th> SID </th> <th> lname </th> <th> fname </th> <th> section </th> <th> score </th></tr>";
+    // echo "<tr><th> SID </th> <th> lname </th> <th> fname </th> <th> section </th> <th> AName </th> <th> score </th></tr>";
+    $header = "<tr><th> SID </th> <th> lname </th> <th> fname </th> <th> section </th>";
+    $content = "";
     	//execute the query, then run through the result table row by row to
       //put each row's data into our array
       try {
         if ($result = $conn->query($sql)) {
+          $check = true;
           foreach($result as $row){
-            echo "<tr><td>".$row["SID"];
-            echo "</td><td>".$row["Lname"];
-            echo "</td><td>".$row["FName"];
-            echo "</td><td>".$row["Sec"];
-            echo "</td><td>".$row["Score"];
-            echo "</td></tr>";
+            if ($check) {
+              $content=$content."<tr><td>".$row["SID"]. "</td><td>".$row["LName"]."</td><td>".$row["FName"]."</td><td>".$row["Sec"];
+              $check = false;
+            }
+            $score = $row["Score"];
+            $assessment=$row["AName"];
+            $header=$header."<th>".$assessment."</th>";
+            if ($score ==  null || $score == 0) {
+              $content=$content."</td><td>";
+            } else {
+              $content=$content."</td><td>".$row["Score"];
+            }
           }
+          echo $header."</tr>";
+          echo $content."</td></tr>";
         }
       } catch(Exception $e) {
         echo "ERROR: SID ".$IDNum." not found";
