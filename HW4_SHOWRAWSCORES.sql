@@ -1,3 +1,5 @@
+DROP PROCEDURE IF EXISTS HW4_SHOWRAWSCORES;
+CREATE PROCEDURE HW4_SHOWRAWSCORES(IN InputSID VARCHAR(4))
 Select HW4_Student.SID,
   Lname,
   FName,
@@ -6,4 +8,4 @@ Select HW4_Student.SID,
   Score
 FROM HW4_Student
   JOIN HW4_RawScore ON HW4_Student.SID = HW4_RawScore.SID
-WHERE HW4_Student.SID = 1006;
+WHERE HW4_Student.SID = InputSID;

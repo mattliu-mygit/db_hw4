@@ -1,5 +1,5 @@
 <head>
-  <title>Show Raw Scores</title>
+  <title>Show All Raw Scores</title>
 </head>
 <body>
   <?php
@@ -11,7 +11,7 @@
 
     // Within html table, tr is table row, th is table header,
     // and td is table data
-    echo "<tr><th> SID </th> <th> lname </th> <th> fname </th> <th> section </th> <th> score </th></tr>";
+    echo "<tr><th> SID </th> <th> lname </th> <th> fname </th> <th> section </th><th> aname </th> <th> percentage </th><th> course_avg </th></tr>";
     	//execute the query, then run through the result table row by row to
       //put each row's data into our array
       try {
@@ -21,7 +21,9 @@
             echo "</td><td>".$row["Lname"];
             echo "</td><td>".$row["FName"];
             echo "</td><td>".$row["Sec"];
-            echo "</td><td>".$row["Score"];
+            echo "</td><td>".$row["AName"];
+            echo "</td><td>".$row["Percentage"];
+            echo "</td><td>".$row["Course_Avg"];
             echo "</td></tr>";
           }
         }

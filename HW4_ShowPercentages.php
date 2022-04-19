@@ -1,27 +1,29 @@
 <head>
-  <title>Show Raw Scores</title>
+  <title>Show Percentages</title>
 </head>
 <body>
   <?php
     include "open.php";
 	  $IDNum = $_POST['SID'];
-    $sql = "Call HW4_SHOWRAWSCORES('". $IDNum."');";
-	  echo "<h2>Raw Scores for ".$IDNum."</h2><br>";
+    $sql = "Call HW4_SHOWPERCENTAGES('". $IDNum."');";
+	  echo "<h2>Percentages for ".$IDNum."</h2><br>";
 	  echo "<table border=\"1px solid black\">";
 
     // Within html table, tr is table row, th is table header,
     // and td is table data
-    echo "<tr><th> SID </th> <th> lname </th> <th> fname </th> <th> section </th> <th> score </th></tr>";
+    echo "<tr><th> SID </th> <th> lname </th> <th> fname </th> <th> section </th><th> aname </th> <th> percentage </th><th> course_avg </th></tr>";
     	//execute the query, then run through the result table row by row to
       //put each row's data into our array
       try {
         if ($result = $conn->query($sql)) {
           foreach($result as $row){
             echo "<tr><td>".$row["SID"];
-            echo "</td><td>".$row["Lname"];
+            echo "</td><td>".$row["LName"];
             echo "</td><td>".$row["FName"];
             echo "</td><td>".$row["Sec"];
-            echo "</td><td>".$row["Score"];
+            echo "</td><td>".$row["AName"];
+            echo "</td><td>".$row["pctg"];
+            echo "</td><td>".$row["Course_Average"];
             echo "</td></tr>";
           }
         }
