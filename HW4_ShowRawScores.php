@@ -13,7 +13,7 @@
       //put each row's data into our array
       if ($result = mysqli_query($conn,$sql)){
         foreach($result as $row){
-          echo $dataPoints, array( "SID"=> $row["SID"], "Score"=> $row["Score"]);
+          echo $row["SID"].$row["Score"];
         }
       }
     
