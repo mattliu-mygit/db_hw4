@@ -8,7 +8,11 @@
     $sqlPassCheck = "Call HW4_CHECKPASSWORD('". $password."');";
 	  echo "<h2>Raw Scores for ".$password."</h2><br>";
     try {
-      $conn->query($sqlPassCheck);
+      $passCheck = $conn->query($sqlPassCheck);
+      if ($passCheck->num_rows == 0) {
+        echo "ERROR: Password ".$password." not found";
+        return;
+      }
       try {
         $conn->close();
         include "open.php"; // TODO: Handle this more elegantly
