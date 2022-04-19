@@ -11,7 +11,6 @@
 
     // Within html table, tr is table row, th is table header,
     // and td is table data
-    // echo "<tr><th> SID </th> <th> lname </th> <th> fname </th> <th> section </th> <th> AName </th> <th> score </th></tr>";
     $header = "<tr><th> SID </th> <th> lname </th> <th> fname </th> <th> section </th>";
     $content = "";
     	//execute the query, then run through the result table row by row to
