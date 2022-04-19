@@ -13,8 +13,10 @@
       //put each row's data into our array
       if ($result = mysqli_query($conn,$sql)){
         foreach($result as $row){
-          echo $row["SID"].$row["Score"];
+          echo $row["SID"]."    ".$row["Score"]."\n";
         }
+      } else {
+        echo "Uh oh!"
       }
     
       //close the connection opened by open.php since we no longer need access to dbase
