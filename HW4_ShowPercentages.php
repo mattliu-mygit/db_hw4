@@ -23,7 +23,7 @@
             echo "</td><td>".$row["Sec"];
             echo "</td><td>".$row["AName"];
             echo "</td><td>".$row["pctg"]."%";
-            echo "</td><td>".$row["Course_Average"]."%";
+            echo "</td><td>".number_format($row["Course_Average"],2)."%";
             echo "</td></tr>";
           }
         }
