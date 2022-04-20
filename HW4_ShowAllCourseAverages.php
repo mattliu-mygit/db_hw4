@@ -63,7 +63,7 @@
                 if (($indexTot+1)% $assignments->num_rows == 0) {
                   // Set weight-calculated course average
                   $total = 0.4 * ($quizEarned/$totalQuiz) + 0.6 * ($examEarned/$totalExam);
-                  $content=$content."</td><td>".round($total,2)."</td></tr>";
+                  $content=$content."</td><td>".round($total*100,2)."%</td></tr>";
                   // Cleanup
                   $quizEarned = 0;
                   $examEarned = 0;
@@ -86,7 +86,7 @@
               if (($indexTot+1)% $assignments->num_rows == 0) {
                 // Set weight-calculated course average
                 $total = 0.4 * ($quizEarned/$totalQuiz) + 0.6 * ($examEarned/$totalExam);
-                $content=$content."</td><td>".round($total,2)."</td></tr>";
+                $content=$content."</td><td>".round($total*100,2)."%</td></tr>";
                 // Cleanup
                 $quizEarned = 0;
                 $examEarned = 0;

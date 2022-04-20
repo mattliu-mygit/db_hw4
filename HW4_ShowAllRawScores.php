@@ -74,7 +74,6 @@
         } catch(Exception $e) {
           echo "ERROR: no students found";
         }
-      
       } catch(Exception $ex) {
         echo "ERROR: Error fetching assignments! ".$ex->getMessage();
       }

@@ -42,7 +42,7 @@ NEWROWS AS (
 ),
 ALL_ASSESSMENTS AS (
   SELECT *,
-    ROUND(Score / PtsPoss, 2) as pctg
+    ROUND((Score / PtsPoss) * 100, 2) as pctg
   FROM PERCENTAGES
   UNION
   SELECT SID,
@@ -53,7 +53,7 @@ ALL_ASSESSMENTS AS (
     Score,
     PtsPoss,
     Atype,
-    ROUND(Score / PtsPoss, 2) as pctg
+    ROUND((Score / PtsPoss) * 100, 2) as pctg
   FROM NEWROWS
 ),
 AVG_ASSESSMENTS AS (
@@ -73,7 +73,7 @@ W_QUIZ AS (
   WHERE AType = 'QUIZ'
 ),
 COURSE_AVG AS (
-  SELECT ROUND(W_EXAM.W_AVG + W_QUIZ.W_AVG, 2) AS Course_Average
+  SELECT ROUND((W_EXAM.W_AVG + W_QUIZ.W_AVG) * 100, 2) AS Course_Average
   FROM W_EXAM
     JOIN W_QUIZ
 )

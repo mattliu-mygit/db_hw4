@@ -22,8 +22,8 @@
             echo "</td><td>".$row["FName"];
             echo "</td><td>".$row["Sec"];
             echo "</td><td>".$row["AName"];
-            echo "</td><td>".$row["pctg"];
-            echo "</td><td>".$row["Course_Average"];
+            echo "</td><td>".$row["pctg"]."%";
+            echo "</td><td>".$row["Course_Average"]."%";
             echo "</td></tr>";
           }
         }
